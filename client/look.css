@@ -116,7 +116,7 @@ html .LibraryItemActionButton.Play { border-radius: 12px !important; background:
 html .LibraryItemActionButton.Play:hover { transform: scale(1.05) !important; filter: brightness(1.08); }
 html .LibraryItemActionButton.Play svg :is(path, polygon) { fill: var(--hc-on) !important; }
 html .DemoBanner { background: color-mix(in srgb, var(--hc-s3) 92%, transparent) !important; color: #F3F4F8 !important; font-weight: 600 !important; }
-html .UpdatesContainer [class*="EventDate"], html .UpdatesContainer [class*="DateRange"] { background: color-mix(in srgb, var(--hc-ink) 72%, transparent) !important; color: #F3F4F8 !important; border-radius: 8px 0 0 0 !important; -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); }
+html .EventTimeSpan, html .UpdatesContainer [class*="EventDate"], html .UpdatesContainer [class*="DateRange"] { background: color-mix(in srgb, var(--hc-ink) 72%, transparent) !important; color: #F3F4F8 !important; border-radius: 8px 0 0 0 !important; -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); }
 
 /* ---- Game page leftovers ---------------------------------------------- */
 html .CommunityItem.Blank { background: rgba(255,255,255,.03) !important; border-radius: var(--hc-r-sm) !important; box-shadow: inset 0 0 0 1px rgba(255,255,255,.04) !important; }
