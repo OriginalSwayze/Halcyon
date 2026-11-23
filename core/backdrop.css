@@ -1,0 +1,22 @@
+/* HALCYON — the backdrop: deep ink, two slow aurora washes, a whisper of film grain,
+   and (script) the current game's artwork, blurred into ambient light. */
+html { background: var(--hc-ink) !important; }
+body { background: transparent !important; }
+html::before, html::after { content: ""; position: fixed; pointer-events: none; z-index: -2; }
+html::before {
+    inset: -20%;
+    background:
+        radial-gradient(38% 42% at 18% 10%, color-mix(in srgb, var(--hc-accent) var(--hc-aurora, 16%), transparent), transparent 70%),
+        radial-gradient(34% 40% at 88% 92%, color-mix(in srgb, var(--hc-accent-2) var(--hc-aurora, 16%), transparent), transparent 72%),
+        radial-gradient(30% 30% at 70% 18%, color-mix(in srgb, var(--hc-accent) calc(var(--hc-aurora, 16%) * .45), transparent), transparent 70%);
+    animation: hc-drift-a 48s ease-in-out infinite alternate; animation-play-state: var(--mr-ambient);
+}
+html::after { inset: 0; background: var(--hc-noise); opacity: var(--hc-grain, .045); z-index: -1; }
+.Wrapper.ForceOpaqueBackground, .FocusNavigationRoot, .Root, .OuterFrame, .ContentFrame { background: transparent !important; }
+
+/* Ambient artwork layer (built by the script): two images that cross-fade */
+html .hc-amb { position: fixed; inset: -12%; z-index: -1; pointer-events: none; }
+html .hc-amb > i { position: absolute; inset: 0; background: center / cover no-repeat; opacity: 0;
+    filter: blur(100px) saturate(170%) brightness(.5); transition: opacity 1.6s var(--hc-out); }
+html .hc-amb > i.on { opacity: var(--hc-amb-strength, .5); }
+html .hc-amb::after { content: ""; position: absolute; inset: 0; background: radial-gradient(90% 80% at 50% 40%, transparent, var(--hc-ink) 92%); }

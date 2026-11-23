@@ -1,0 +1,417 @@
+{
+    "name": "Halcyon",
+    "author": "OriginalSwayze",
+    "description": "A calm, premium redesign of Steam. Soft layered glass with lit edges, generous radii and quiet type; a floating dock with icons and a pill that glides to where you are; spring-based motion throughout; and a window that takes on the colours of the game you are looking at.",
+    "version": "1.0.0",
+    "tags": [
+        "Modern",
+        "Minimal",
+        "Glass",
+        "Premium",
+        "Dark",
+        "Dock"
+    ],
+    "header_image": "https://raw.githubusercontent.com/OriginalSwayze/Halcyon/main/media/library.gif",
+    "splash_image": "https://raw.githubusercontent.com/OriginalSwayze/Halcyon/main/media/gamepage.png",
+    "github": {
+        "owner": "OriginalSwayze",
+        "repo_name": "Halcyon"
+    },
+    "Steam-WebKit": "webkit.css",
+    "Conditions": {
+        "Accent colour": {
+            "description": "Iris, Azure, Mint, Coral, Rose or Mono.",
+            "tab": "Appearance",
+            "default": "Iris",
+            "values": {
+                "Iris": {
+                    "TargetCss": {
+                        "affects": [
+                            ".*"
+                        ],
+                        "src": "options/presets/accent-iris.css"
+                    }
+                },
+                "Azure": {
+                    "TargetCss": {
+                        "affects": [
+                            ".*"
+                        ],
+                        "src": "options/presets/accent-azure.css"
+                    }
+                },
+                "Mint": {
+                    "TargetCss": {
+                        "affects": [
+                            ".*"
+                        ],
+                        "src": "options/presets/accent-mint.css"
+                    }
+                },
+                "Coral": {
+                    "TargetCss": {
+                        "affects": [
+                            ".*"
+                        ],
+                        "src": "options/presets/accent-coral.css"
+                    }
+                },
+                "Rose": {
+                    "TargetCss": {
+                        "affects": [
+                            ".*"
+                        ],
+                        "src": "options/presets/accent-rose.css"
+                    }
+                },
+                "Mono": {
+                    "TargetCss": {
+                        "affects": [
+                            ".*"
+                        ],
+                        "src": "options/presets/accent-mono.css"
+                    }
+                }
+            }
+        },
+        "Surfaces": {
+            "description": "Midnight (cool ink), Graphite (neutral) or OLED (true black).",
+            "tab": "Appearance",
+            "default": "Midnight",
+            "values": {
+                "Midnight": {},
+                "Graphite": {
+                    "TargetCss": {
+                        "affects": [
+                            ".*"
+                        ],
+                        "src": "options/presets/tone-graphite.css"
+                    }
+                },
+                "OLED": {
+                    "TargetCss": {
+                        "affects": [
+                            ".*"
+                        ],
+                        "src": "options/presets/tone-oled.css"
+                    }
+                }
+            }
+        },
+        "Ambient light": {
+            "description": "The window glows with the current game's artwork, shows only the aurora, or stays plain.",
+            "tab": "Appearance",
+            "default": "Artwork",
+            "values": {
+                "Artwork": {},
+                "Aurora only": {
+                    "TargetCss": {
+                        "affects": [
+                            ".*"
+                        ],
+                        "src": "options/ambient-aurora.css"
+                    }
+                },
+                "Off": {
+                    "TargetCss": {
+                        "affects": [
+                            ".*"
+                        ],
+                        "src": "options/ambient-off.css"
+                    }
+                }
+            }
+        },
+        "Ambient strength": {
+            "description": "How strongly the artwork and aurora show through.",
+            "tab": "Appearance",
+            "default": "Soft",
+            "values": {
+                "Soft": {},
+                "Vivid": {
+                    "TargetCss": {
+                        "affects": [
+                            ".*"
+                        ],
+                        "src": "options/amb-strong.css"
+                    }
+                }
+            }
+        },
+        "Film grain": {
+            "description": "A barely-there grain over the backdrop that keeps gradients smooth.",
+            "tab": "Appearance",
+            "default": "On",
+            "values": {
+                "On": {},
+                "Off": {
+                    "TargetCss": {
+                        "affects": [
+                            ".*"
+                        ],
+                        "src": "options/grain-off.css"
+                    }
+                }
+            }
+        },
+        "Panel transparency": {
+            "description": "How solid the glass cards are.",
+            "tab": "Appearance",
+            "default": 78,
+            "slider": {
+                "cssVariable": "--mr-setting-tint",
+                "min": 40,
+                "max": 100,
+                "step": 2,
+                "unit": "%"
+            }
+        },
+        "Glass blur": {
+            "description": "How much the glass blurs what is behind it.",
+            "tab": "Appearance",
+            "default": 28,
+            "slider": {
+                "cssVariable": "--mr-setting-blur",
+                "min": 0,
+                "max": 48,
+                "step": 2,
+                "unit": "px"
+            }
+        },
+        "Corner radius": {
+            "description": "From crisp to very soft.",
+            "tab": "Appearance",
+            "default": 14,
+            "slider": {
+                "cssVariable": "--mr-setting-radius",
+                "min": 4,
+                "max": 22,
+                "step": 1,
+                "unit": "px"
+            }
+        },
+        "Game list density": {
+            "description": "Row size in the game list.",
+            "tab": "Layout",
+            "default": "Comfortable",
+            "values": {
+                "Comfortable": {},
+                "Compact": {
+                    "TargetCss": {
+                        "affects": [
+                            "^Steam$"
+                        ],
+                        "src": "options/list-compact.css"
+                    }
+                }
+            }
+        },
+        "What's New shelf": {
+            "description": "The What's New carousel on the library home.",
+            "tab": "Layout",
+            "default": "Show",
+            "values": {
+                "Show": {},
+                "Hide": {
+                    "TargetCss": {
+                        "affects": [
+                            "^Steam$"
+                        ],
+                        "src": "options/hide-whats-new.css"
+                    }
+                }
+            }
+        },
+        "Readout": {
+            "description": "A quiet greeting with the time and date in the title bar.",
+            "tab": "Layout",
+            "default": "On",
+            "values": {
+                "On": {},
+                "Off": {
+                    "TargetCss": {
+                        "affects": [
+                            "^Steam$"
+                        ],
+                        "src": "options/hud-off.css"
+                    }
+                }
+            }
+        },
+        "Startup screen": {
+            "description": "The Halcyon mark and wordmark catching the light when Steam opens.",
+            "tab": "Motion",
+            "default": "On",
+            "values": {
+                "On": {},
+                "Off": {
+                    "TargetCss": {
+                        "affects": [
+                            "^Steam$"
+                        ],
+                        "src": "options/boot-off.css"
+                    }
+                }
+            }
+        },
+        "Motion": {
+            "description": "Full: everything. Calm: hovers only, the backdrop stands still. Still: no theme motion.",
+            "tab": "Motion",
+            "default": "Full",
+            "values": {
+                "Full": {},
+                "Calm": {
+                    "TargetCss": {
+                        "affects": [
+                            ".*"
+                        ],
+                        "src": "options/motion-calm.css"
+                    }
+                },
+                "Still": {
+                    "TargetCss": {
+                        "affects": [
+                            ".*"
+                        ],
+                        "src": "options/motion-still.css"
+                    }
+                }
+            }
+        },
+        "Cover hover": {
+            "description": "Library covers under the cursor: Tilt, Lift or Off.",
+            "tab": "Motion",
+            "default": "Tilt",
+            "values": {
+                "Tilt": {},
+                "Lift": {
+                    "TargetCss": {
+                        "affects": [
+                            "^Steam$"
+                        ],
+                        "src": "options/covers-lift.css"
+                    }
+                },
+                "Off": {
+                    "TargetCss": {
+                        "affects": [
+                            "^Steam$"
+                        ],
+                        "src": "options/covers-off.css"
+                    }
+                }
+            }
+        },
+        "Cursor light": {
+            "description": "A soft light that follows the cursor across panels.",
+            "tab": "Motion",
+            "default": "On",
+            "values": {
+                "On": {},
+                "Off": {
+                    "TargetCss": {
+                        "affects": [
+                            "^Steam$"
+                        ],
+                        "src": "options/cursor-light-off.css"
+                    }
+                }
+            }
+        },
+        "Privacy": {
+            "description": "Blur your account name and wallet until hovered.",
+            "tab": "Extras",
+            "default": "Off",
+            "values": {
+                "Off": {},
+                "Blur": {
+                    "TargetCss": {
+                        "affects": [
+                            "^Steam$"
+                        ],
+                        "src": "options/privacy.css"
+                    }
+                }
+            }
+        },
+        "Contrast": {
+            "description": "High: solid panels and brighter secondary text.",
+            "tab": "Accessibility",
+            "default": "Normal",
+            "values": {
+                "Normal": {},
+                "High": {
+                    "TargetCss": {
+                        "affects": [
+                            ".*"
+                        ],
+                        "src": "options/contrast-high.css"
+                    }
+                }
+            }
+        },
+        "Focus rings": {
+            "description": "Strong: a thick, high-visibility outline on whatever has keyboard or controller focus.",
+            "tab": "Accessibility",
+            "default": "Standard",
+            "values": {
+                "Standard": {},
+                "Strong": {
+                    "TargetCss": {
+                        "affects": [
+                            ".*"
+                        ],
+                        "src": "options/focus-strong.css"
+                    }
+                }
+            }
+        },
+        "Text size": {
+            "description": "Large: bigger game list and body text.",
+            "tab": "Accessibility",
+            "default": "Normal",
+            "values": {
+                "Normal": {},
+                "Large": {
+                    "TargetCss": {
+                        "affects": [
+                            ".*"
+                        ],
+                        "src": "options/text-large.css"
+                    }
+                }
+            }
+        }
+    },
+    "Patches": [
+        {
+            "MatchRegexString": "^Steam$",
+            "TargetCss": "main.css",
+            "TargetJs": "js/main.js"
+        },
+        {
+            "MatchRegexString": ".ModalDialogPopup",
+            "TargetCss": "main.css"
+        },
+        {
+            "MatchRegexString": ".FullModalOverlay",
+            "TargetCss": "main.css"
+        },
+        {
+            "MatchRegexString": ".friendsui-container",
+            "TargetCss": "friends.css"
+        },
+        {
+            "MatchRegexString": ".ContextMenuPopup",
+            "TargetCss": "popup.css"
+        },
+        {
+            "MatchRegexString": ".DesktopToastContainer",
+            "TargetCss": "toast.css"
+        },
+        {
+            "MatchRegexString": "^Sign in to Steam$",
+            "TargetCss": "login.css"
+        }
+    ]
+}

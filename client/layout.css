@@ -1,0 +1,85 @@
+/* ==========================================================================
+   HALCYON — layout: a desk with a floating dock.
+     · Top: wordmark and menus on the left, a quiet greeting with the time
+       centred, the account on the right
+     · Middle: the game list and the page as two soft glass cards with room
+       to breathe between them
+     · Bottom centre: a floating dock — back / forward, Store · Library ·
+       Community · You with icons and a lit pill that glides to the current
+       one — and beside it a second, smaller dock for add game, downloads and
+       friends
+   ========================================================================== */
+html .OuterFrame > .TopBar { height: 50px !important; min-height: 50px !important; }
+html .Library > .Container { padding: 4px 16px 92px !important; gap: 14px !important; }
+html .Library > .Container > .LibraryWindowDivider { opacity: 0; }
+html .OuterFrame > .ContentFrame:not(:has(.Library)) { padding: 4px 16px 92px !important; box-sizing: border-box !important; }
+
+/* ---- The dock: navigation ---------------------------------------------- */
+html .TopBar > .SuperNavBar {
+    position: fixed !important; inset: auto auto 16px 50% !important; transform: translateX(-50%) !important;
+    width: auto !important; height: 60px !important; z-index: 31; animation: hc-dock-in 900ms var(--hc-spring) 150ms backwards;
+}
+html .SuperNavBar .SuperNav {
+    box-sizing: border-box !important; height: 60px !important; margin: 0 !important; padding: 8px !important; gap: 4px !important; align-items: center !important;
+    border-radius: 20px !important; background: color-mix(in srgb, var(--hc-s2) 78%, transparent) !important;
+    -webkit-backdrop-filter: blur(30px) saturate(170%) !important; backdrop-filter: blur(30px) saturate(170%) !important;
+    box-shadow: var(--hc-edge), var(--hc-float) !important;
+}
+html .SuperNav > svg.Arrow { width: 34px !important; height: 34px !important; padding: 9px !important; border-radius: 12px !important; color: var(--t-fg-2); transition: background-color var(--mr-t-1), opacity var(--mr-t-2) !important; }
+html .SuperNav > svg.Arrow.Enabled:hover { background: rgba(255,255,255,.07) !important; }
+html .SuperNav > svg.Arrow:nth-of-type(2) { margin-right: 6px !important; }
+html .SuperNav > svg.Arrow:nth-of-type(2)::after { content: none; }
+html .SuperNav .SuperNavMenu { height: 44px !important; }
+html .SuperNav .SuperNavMenu > .MenuButton {
+    position: relative; height: 44px !important; padding: 0 18px 0 44px !important; border-radius: 13px !important; gap: 0;
+    font-family: var(--hc-head) !important; font-size: 13.5px !important; font-weight: 600 !important; letter-spacing: 0 !important; color: var(--t-fg-2) !important;
+    transition: color 260ms var(--hc-out), background-color 260ms var(--hc-out) !important;
+}
+html .SuperNav .SuperNavMenu > .MenuButton::before {
+    content: "" !important; display: block !important; position: absolute; left: 16px; top: 50%; width: 20px; height: 20px; margin-top: -10px;
+    background: currentColor !important; -webkit-mask: var(--hc-icon) center / 20px no-repeat; mask: var(--hc-icon) center / 20px no-repeat;
+    transition: transform 420ms var(--hc-spring);
+}
+html .SuperNav .SuperNavMenu:nth-last-child(4) > .MenuButton { --hc-icon: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'><path d='M4.5 9.5h15l-1.1 9.1a1.6 1.6 0 0 1-1.6 1.4H7.2a1.6 1.6 0 0 1-1.6-1.4z'/><path d='M8.5 9.5V7.8a3.5 3.5 0 0 1 7 0v1.7'/></svg>"); }
+html .SuperNav .SuperNavMenu:nth-last-child(3) > .MenuButton { --hc-icon: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'><rect x='3.5' y='3.5' width='7' height='7' rx='2'/><rect x='13.5' y='3.5' width='7' height='7' rx='2'/><rect x='3.5' y='13.5' width='7' height='7' rx='2'/><rect x='13.5' y='13.5' width='7' height='7' rx='2'/></svg>"); }
+html .SuperNav .SuperNavMenu:nth-last-child(2) > .MenuButton { --hc-icon: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'><circle cx='9' cy='8.5' r='3.2'/><path d='M3 19.5c.7-3.2 3.1-5 6-5s5.3 1.8 6 5'/><path d='M15.5 5.6a3 3 0 0 1 0 5.8'/><path d='M17.5 14.7c1.8.5 3 1.9 3.5 4.3'/></svg>"); }
+html .SuperNav .SuperNavMenu:nth-last-child(1) > .MenuButton { --hc-icon: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'><circle cx='12' cy='8.5' r='3.6'/><path d='M4.8 20c.9-3.7 3.7-5.8 7.2-5.8s6.3 2.1 7.2 5.8'/></svg>"); font-size: 0 !important; }
+html .SuperNav .SuperNavMenu:nth-last-child(1) > .MenuButton::after { content: "You" !important; display: block !important; position: static !important; font-size: 13.5px; opacity: 1 !important; transform: none !important; background: none !important; width: auto !important; height: auto !important; }
+html .SuperNav .SuperNavMenu:hover > .MenuButton { color: #F3F4F8 !important; background: rgba(255,255,255,.055) !important; }
+html .SuperNav .SuperNavMenu:hover > .MenuButton::before { transform: translateY(-1px) scale(1.08); }
+html .SuperNav .SuperNavMenu.Selected > .MenuButton, html.mr-js .SuperNav .SuperNavMenu.Selected > .MenuButton { color: #fff !important; background: transparent !important; box-shadow: none !important; }
+html:not(.mr-js) .SuperNav .SuperNavMenu.Selected > .MenuButton { background: var(--hc-a24) !important; }
+html .SuperNav .SuperNavMenu.Selected > .MenuButton::before { background: var(--hc-accent) !important; }
+html .SuperNav .mr-nav-indicator {
+    top: 8px !important; height: 44px !important; border-radius: 13px !important; animation: none !important;
+    background: linear-gradient(180deg, var(--hc-a24), var(--hc-a14)) !important;
+    box-shadow: inset 0 0 0 1px var(--hc-a40), inset 0 1px 0 rgba(255,255,255,.12), 0 8px 24px -10px var(--hc-accent) !important;
+    transition: transform 560ms var(--hc-spring), width 460ms var(--hc-out), top 460ms var(--hc-out) !important;
+}
+
+/* ---- The dock: actions (the script keeps it beside the navigation) ------ */
+html .BottomBar {
+    left: var(--hc-dock-x, auto) !important; right: auto !important; bottom: 16px !important; margin: 0 !important; width: auto !important; height: 60px !important;
+    padding: 8px !important; gap: 4px !important; z-index: 31; animation: hc-dock-in 900ms var(--hc-spring) 260ms backwards !important;
+}
+html:not(.hc-docked) .BottomBar { left: auto !important; right: 16px !important; }
+html .BottomBar::before { border-radius: 20px !important; background: color-mix(in srgb, var(--hc-s2) 78%, transparent) !important; -webkit-backdrop-filter: blur(30px) saturate(170%) !important; backdrop-filter: blur(30px) saturate(170%) !important; box-shadow: var(--hc-edge), var(--hc-float) !important; }
+html .BottomBar .DownloadStatus::before, html .BottomBar .DownloadStatus::after { display: none !important; }
+html .BottomBar :is(.AddGameButton, .DownloadStatus, .FriendsButton) {
+    position: relative !important; width: 44px !important; min-width: 44px !important; height: 44px !important; padding: 0 !important; justify-content: center; border-radius: 13px !important;
+    background: transparent !important; box-shadow: none !important; color: var(--t-fg-2) !important; transition: background-color 240ms, color 240ms !important;
+}
+html .BottomBar :is(.AddGameButton, .DownloadStatus, .FriendsButton) > * { opacity: 0 !important; }
+html .BottomBar :is(.AddGameButton, .DownloadStatus, .FriendsButton)::after {
+    content: "" !important; display: block !important; position: absolute !important; left: 12px !important; top: 12px !important; right: auto !important; bottom: auto !important;
+    width: 20px !important; height: 20px !important; margin: 0 !important; border-radius: 0 !important; opacity: 1 !important; transform: none !important; background: currentColor !important; box-shadow: none !important;
+    -webkit-mask: var(--hc-icon) center / 20px no-repeat; mask: var(--hc-icon) center / 20px no-repeat; transition: scale 420ms var(--hc-spring);
+}
+html .BottomBar .AddGameButton { --hc-icon: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'><path d='M12 5v14M5 12h14'/></svg>"); }
+html .BottomBar .DownloadStatus { --hc-icon: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'><path d='M12 4v11'/><path d='m7 10.5 5 5 5-5'/><path d='M5 20h14'/></svg>"); }
+html .BottomBar .FriendsButton { --hc-icon: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'><path d='M20 11.5a7.5 7.5 0 0 1-11 6.6L4 19.5l1.4-4.3A7.5 7.5 0 1 1 20 11.5z'/></svg>"); }
+html .BottomBar :is(.AddGameButton, .DownloadStatus, .FriendsButton):hover { color: #fff !important; background: rgba(255,255,255,.07) !important; }
+html .BottomBar :is(.AddGameButton, .DownloadStatus, .FriendsButton):hover::after { scale: 1.1; }
+html .BottomBar .DownloadStatus:has(.DetailedDownloadProgress) { color: var(--hc-accent) !important; }
+html .BottomBar .DownloadStatus:has(.DetailedDownloadProgress)::before { content: "" !important; display: block !important; position: absolute !important; right: 9px; top: 9px; width: 7px; height: 7px; border-radius: 50%; background: var(--hc-accent); box-shadow: 0 0 8px var(--hc-accent); animation: hc-dot 1.6s ease-in-out infinite; }
+html .BottomBar .hc-sep { width: 1px; height: 24px; background: rgba(255,255,255,.08); margin: 0 2px; }

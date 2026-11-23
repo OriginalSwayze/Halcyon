@@ -1,0 +1,151 @@
+/* ==========================================================================
+   HALCYON — the look.
+   Layered glass with lit top edges, generous radii, quiet type with tight
+   display headings, the accent reserved for what you can act on.
+   ========================================================================== */
+
+/* ---- Type ------------------------------------------------------------- */
+html :is(.UpdatesContainer .Name, .ShowcaseHeader .Focusable, .ShowcaseHeader .DialogDropDown_CurrentDisplay) {
+    font-family: var(--hc-head) !important; font-size: 18px !important; font-weight: 600 !important; letter-spacing: -.005em !important; text-transform: none !important; color: #F3F4F8 !important;
+}
+html :is(.AppDetailsSection .SectionHeader, h2.SectionHeader) {
+    font-family: var(--hc-head) !important; font-size: 15px !important; font-weight: 600 !important; letter-spacing: -.003em !important; text-transform: none !important;
+    color: #F3F4F8 !important; background: none !important; border: none !important;
+}
+html .AppDetailsSection .SectionHeader::before { display: none !important; }
+html :is(.PlayBar .PlayBarLabel, .UpdatesContainer .EventTime, .LeftListSizableContainer .SearchBar .MenuHeader .ViewName) {
+    font-family: var(--hc-small) !important; font-size: 11px !important; font-weight: 600 !important; letter-spacing: .06em !important; text-transform: uppercase !important; color: var(--t-fg-3) !important;
+}
+html .PlayBar :is(.LastPlayedInfo, .PlayBarDetailLabel) { font-family: var(--hc-head) !important; font-weight: 600 !important; font-size: 14px !important; color: #F3F4F8 !important; }
+
+/* ---- Wordmark + menus -------------------------------------------------- */
+html .RootMenuBar { padding-left: 14px !important; gap: 0 !important; }
+html .RootMenuBar .RootMenuButton .SteamButton { gap: 10px !important; margin-right: 10px; }
+html .RootMenuBar .RootMenuButton .SteamButton::before {
+    width: 18px; height: 18px; border-radius: 6px; animation: none;
+    background: var(--hc-grad); box-shadow: inset 0 1px 0 rgba(255,255,255,.35), 0 4px 14px -4px var(--hc-a60);
+    -webkit-mask: radial-gradient(circle at 50% 50%, transparent 0 3.2px, #000 3.7px); mask: radial-gradient(circle at 50% 50%, transparent 0 3.2px, #000 3.7px);
+}
+html .RootMenuBar .RootMenuButton .SteamButton::after { content: "Halcyon"; font-family: var(--hc-head); font-weight: 650; font-size: 14px; letter-spacing: -.005em; color: #F3F4F8; }
+html .RootMenuBar .RootMenuButton { height: 28px !important; padding: 0 10px !important; border-radius: 8px !important; font-size: 12.5px !important; font-weight: 500 !important; color: var(--t-fg-3) !important; }
+html .RootMenuBar .RootMenuButton:hover, html .RootMenuBar .RootMenuButton.MenuOpen { color: #F3F4F8 !important; background: rgba(255,255,255,.06) !important; }
+
+/* ---- Readout: greeting, clock, date ------------------------------------ */
+html .od-hud { position: absolute !important; left: 50%; top: 50%; transform: translate(-50%, -50%); margin: 0 !important; pointer-events: none !important;
+    display: flex; align-items: center; gap: 10px; white-space: nowrap; font: 500 12.5px var(--hc-text); color: var(--t-fg-3); }
+html .od-hud b { font: 600 12.5px var(--hc-head); color: #F3F4F8; font-variant-numeric: tabular-nums; }
+html .od-hud .sep { width: 3px; height: 3px; border-radius: 50%; background: var(--t-fg-4); }
+html .od-hud .dl { display: inline-flex; align-items: center; gap: 6px; color: var(--hc-accent); }
+html .od-hud .dl::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: currentColor; box-shadow: 0 0 10px currentColor; animation: hc-dot 1.6s ease-in-out infinite; animation-play-state: var(--mr-ambient); }
+@media (max-width: 1180px) { html .od-hud { display: none; } }
+
+/* ---- Account cluster --------------------------------------------------- */
+html .TitleBarControls .Button, html .TitleBarControls .AccountMenu { border-radius: 10px !important; background: rgba(255,255,255,.04) !important; box-shadow: var(--hc-edge) !important; transition: background-color var(--mr-t-2), box-shadow var(--mr-t-2) !important; }
+html .TitleBarControls .Button:hover, html .TitleBarControls .AccountMenu:hover { background: rgba(255,255,255,.08) !important; transform: none !important; }
+html .TitleBarControls .AccountMenu .avatarHolder, html .TitleBarControls .AccountMenu .avatarHolder img { border-radius: 50% !important; }
+html .TitleBarControls .AccountMenu .WalletBalance { background: transparent !important; color: var(--t-fg-2) !important; font-variant-numeric: tabular-nums; }
+
+/* ---- Panels: soft glass cards ------------------------------------------ */
+html .Library > .Container > div:not(.MainPanel):first-child, html .MainPanel {
+    border-radius: var(--hc-r) !important;
+    background: var(--mr-spot), var(--mr-glass) !important;
+    -webkit-backdrop-filter: var(--mr-glass-filter); backdrop-filter: var(--mr-glass-filter);
+    box-shadow: var(--hc-edge), var(--hc-lift) !important;
+}
+html .MainPanel > * { animation: hc-page-in 520ms var(--hc-out) backwards; }
+
+/* ---- Game list ---------------------------------------------------------- */
+html .HomeBox .Bar { border-radius: 10px !important; transition: background-color var(--mr-t-2) !important; }
+html .HomeBox .Bar .Label { font-family: var(--hc-head) !important; font-weight: 600 !important; text-transform: none !important; letter-spacing: 0 !important; }
+html .HomeBox .Bar:hover { background: rgba(255,255,255,.045) !important; }
+html .HomeBox .Bar.Selected { background: var(--hc-a14) !important; box-shadow: inset 0 0 0 1px var(--hc-a24) !important; }
+html .SearchInput input.DialogInput, html .SearchInput input.DialogTextInputBase {
+    height: 36px !important; border-radius: 10px !important; background-color: rgba(0,0,0,.28) !important; border: none !important;
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,.06) !important; transition: box-shadow var(--mr-t-2), background-color var(--mr-t-2) !important;
+}
+html .SearchInput input.DialogInput:focus { background-color: rgba(0,0,0,.4) !important; box-shadow: inset 0 0 0 1px var(--hc-a60), 0 0 0 4px var(--hc-a14) !important; }
+html .ReactVirtualized__List .SectionName { font-family: var(--hc-small) !important; font-size: 11px !important; font-weight: 600 !important; letter-spacing: .07em !important; color: var(--t-fg-3) !important; }
+html .ReactVirtualized__List .SectionRule { height: 1px !important; background: rgba(255,255,255,.05) !important; }
+html .ReactVirtualized__List .Container:has(> .GameListEntryContainer) { border-radius: 8px !important; transition: background-color 160ms ease !important; }
+html .ReactVirtualized__List .Container:has(> .GameListEntryContainer):hover { background: rgba(255,255,255,.045) !important; }
+html body .ReactVirtualized__List .Container.Selected.Selected:has(> .GameListEntryContainer) { background: var(--hc-a14) !important; box-shadow: inset 0 0 0 1px var(--hc-a24) !important; }
+html body .ReactVirtualized__List .Container.Selected:has(> .GameListEntryContainer) .GameListEntryContainer > span { color: #fff !important; }
+html .ReactVirtualized__List .Container.Selected:has(> .GameListEntryContainer)::before { display: none !important; }
+html .ReactVirtualized__List .Container.Running:has(> .GameListEntryContainer) .GameListEntryContainer > span { color: var(--mr-ok) !important; }
+html .ReactVirtualized__List .Container:is(.Updating, .Synchronizing):has(> .GameListEntryContainer) .GameListEntryContainer > span { color: var(--hc-accent) !important; }
+
+/* ---- Covers --------------------------------------------------------------- */
+html .UpdatesContainer .HoversEnabled { border-radius: var(--hc-r-sm) !important; }
+html .LibraryItemBox, html .LibraryItemBox > * { border-radius: var(--hc-r-sm) !important; }
+html .LibraryItemBox { box-shadow: 0 0 0 1px rgba(255,255,255,.05), 0 10px 26px -14px rgba(0,0,0,.8) !important;
+    transition: box-shadow 420ms var(--hc-out), transform 520ms var(--hc-spring) !important; }
+html .LibraryItemBox:hover { box-shadow: 0 0 0 1px rgba(255,255,255,.14), 0 26px 50px -18px rgba(0,0,0,.95), 0 12px 40px -20px var(--hc-a60) !important; }
+html .LibraryItemBox::after { background: radial-gradient(120% 80% at var(--mr-gx, 50%) var(--mr-gy, 0%), rgba(255,255,255,.16), transparent 55%) !important; mix-blend-mode: soft-light !important; }
+
+/* ---- Game page ------------------------------------------------------------ */
+html .AppDetailsMain .TopCapsule img.TitleLogo { filter: drop-shadow(0 10px 30px rgba(0,0,0,.7)); }
+html .AppDetailsMain .PlayBar > .InnerContainer {
+    border-radius: var(--hc-r) !important; background: var(--mr-glass-strong) !important;
+    -webkit-backdrop-filter: var(--mr-glass-filter); backdrop-filter: var(--mr-glass-filter); box-shadow: var(--hc-edge), var(--hc-lift) !important;
+}
+html .PlayButton.ButtonChild {
+    border-radius: 12px !important; background: var(--hc-grad) !important; color: var(--hc-on) !important; animation: none !important;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.32), inset 0 -1px 0 rgba(0,0,0,.15), 0 10px 28px -10px var(--hc-accent) !important;
+    transition: transform 380ms var(--hc-spring), box-shadow 300ms var(--hc-out), filter 200ms !important;
+}
+html .PlayButton.ButtonChild .ButtonText { font-family: var(--hc-head) !important; font-weight: 650 !important; font-size: 15px !important; letter-spacing: .01em !important; text-transform: none !important; color: var(--hc-on) !important; }
+html .PlayButton.ButtonChild svg, html .PlayButton.ButtonChild svg path { fill: var(--hc-on) !important; }
+html .PlayButton.ButtonChild:hover { transform: translateY(-1px) !important; filter: brightness(1.08); box-shadow: inset 0 1px 0 rgba(255,255,255,.4), 0 16px 36px -10px var(--hc-accent) !important; }
+html .PlayButton.ButtonChild:active { transform: translateY(0) scale(.98) !important; }
+html .PlayButtonContainer:has(.StreamingSelector) .PlayButton.ButtonChild { border-radius: 12px 4px 4px 12px !important; }
+html .StreamingSelector.ButtonChild { margin-left: 3px !important; border-radius: 4px 12px 12px 4px !important; background: color-mix(in srgb, var(--hc-accent-2) 85%, #000) !important; box-shadow: inset 0 1px 0 rgba(255,255,255,.25) !important; color: var(--hc-on) !important; transition: filter 200ms !important; }
+html .StreamingSelector.ButtonChild:hover { filter: brightness(1.12); }
+html .StreamingSelector.ButtonChild svg :is(path, polygon) { fill: var(--hc-on) !important; }
+html .PlayBar .RightControls .MenuButton { border-radius: 10px !important; background: rgba(255,255,255,.05) !important; box-shadow: var(--hc-edge) !important; transition: background-color var(--mr-t-2) !important; }
+html .PlayBar .RightControls .MenuButton:hover { background: rgba(255,255,255,.1) !important; transform: none !important; }
+html .LinksSection .LinkInner { border-radius: 99px !important; padding-left: 16px !important; padding-right: 16px !important; background: rgba(255,255,255,.05) !important; box-shadow: var(--hc-edge) !important;
+    color: var(--t-fg-2) !important; font-weight: 600 !important; font-size: 12.5px !important; text-transform: none !important; letter-spacing: 0 !important; transition: background-color var(--mr-t-2), color var(--mr-t-2) !important; }
+html .LinksSection .LinkInner:hover { color: #fff !important; background: rgba(255,255,255,.1) !important; transform: none !important; }
+html .AppDetailsSection:not(.LinksSection) > .Panel, html .PartnerEvent.Event { border-radius: var(--hc-r) !important; background: rgba(255,255,255,.028) !important; box-shadow: var(--hc-edge) !important; }
+html .PartnerEventFeaturedHeader { background: transparent !important; color: var(--hc-accent) !important; font-weight: 600; }
+html .ProgressBar .Unlocked, html .ProgressBar [class*="Unlocked"], html .PlayBar .DetailsProgressBar { border-radius: 99px !important; background: var(--hc-grad) !important; box-shadow: none !important; }
+html .ProgressBar, html .PlayBar .DetailsProgressContainer { border-radius: 99px !important; background: rgba(255,255,255,.07) !important; }
+
+/* ---- Shelf extras: the card play button, demo banners, event dates ------- */
+html .LibraryItemActionButton.Play { border-radius: 12px !important; background: var(--hc-grad) !important; box-shadow: inset 0 1px 0 rgba(255,255,255,.3), 0 10px 24px -10px var(--hc-accent) !important; transition: transform 380ms var(--hc-spring), filter 200ms !important; }
+html .LibraryItemActionButton.Play:hover { transform: scale(1.05) !important; filter: brightness(1.08); }
+html .LibraryItemActionButton.Play svg :is(path, polygon) { fill: var(--hc-on) !important; }
+html .DemoBanner { background: color-mix(in srgb, var(--hc-s3) 92%, transparent) !important; color: #F3F4F8 !important; font-weight: 600 !important; }
+html .UpdatesContainer [class*="EventDate"], html .UpdatesContainer [class*="DateRange"] { background: color-mix(in srgb, var(--hc-ink) 72%, transparent) !important; color: #F3F4F8 !important; border-radius: 8px 0 0 0 !important; -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); }
+
+/* ---- Game page leftovers ---------------------------------------------- */
+html .CommunityItem.Blank { background: rgba(255,255,255,.03) !important; border-radius: var(--hc-r-sm) !important; box-shadow: inset 0 0 0 1px rgba(255,255,255,.04) !important; }
+html .ReviewMetadata, html .Highlight.ReviewMetadata { background: rgba(255,255,255,.04) !important; border-radius: var(--hc-r-sm) !important; box-shadow: var(--hc-edge) !important; }
+html .ScrollToTopButton > div { background: color-mix(in srgb, var(--hc-s3) 90%, transparent) !important; border-radius: 99px !important; box-shadow: var(--hc-edge), var(--hc-lift) !important; color: #F3F4F8 !important; }
+html .PageableContainer > .BoxCarousel { background: transparent !important; }
+
+/* ---- Browser URL bar (Store / Community) -------------------------------- */
+html .URLBar { margin-bottom: 8px !important; border-radius: 12px !important; background: var(--mr-glass) !important; -webkit-backdrop-filter: var(--mr-glass-filter); backdrop-filter: var(--mr-glass-filter); box-shadow: var(--hc-edge) !important; border: none !important; }
+html .URLBar .URLBarText { color: var(--t-fg-3) !important; font-size: 12px !important; }
+
+/* ---- Review prompt ------------------------------------------------------- */
+html .ReviewContainer .RatingContainer { border-radius: var(--hc-r) !important; background: rgba(255,255,255,.03) !important; box-shadow: var(--hc-edge) !important; }
+html .ReviewContainer .RatingContainer .Panel { background: transparent !important; }
+html .ReviewContainer :is(.ReviewThumbButton, button) { border-radius: 10px !important; background: rgba(255,255,255,.06) !important; box-shadow: var(--hc-edge) !important; color: #E6E8EE !important; transition: background-color var(--mr-t-2) !important; }
+html .ReviewContainer :is(.ReviewThumbButton, button):hover { background: var(--hc-a24) !important; color: #fff !important; }
+html .ReviewContainer :is(.ReviewThumbButton, button) svg :is(path, polygon) { fill: currentColor !important; }
+
+/* ---- Downloads ------------------------------------------------------------- */
+html .DownloadsPage .Section { border-radius: var(--hc-r) !important; }
+html .BottomBar .DownloadStatus .DetailedDownloadProgress .ProgressBar { background: var(--hc-grad) !important; animation: none !important; border-radius: 99px !important; }
+
+/* ---- Startup: the word catching the light ---------------------------------- */
+html .od-boot.hc-open { position: fixed; inset: 0; z-index: 10000; pointer-events: none; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 22px;
+    background: radial-gradient(60% 50% at 50% 45%, color-mix(in srgb, var(--hc-accent) 12%, var(--hc-ink)), var(--hc-ink) 70%);
+    animation: hc-boot-out 700ms var(--hc-out) 1900ms forwards; }
+html .od-boot.hc-open .mk { width: 54px; height: 54px; border-radius: 16px; background: var(--hc-grad); box-shadow: inset 0 1px 0 rgba(255,255,255,.4), 0 18px 50px -12px var(--hc-accent);
+    -webkit-mask: radial-gradient(circle, transparent 0 9px, #000 10px); mask: radial-gradient(circle, transparent 0 9px, #000 10px); animation: mr-pop 900ms var(--hc-spring) backwards; }
+html .od-boot.hc-open .w { font: 650 40px var(--hc-head); letter-spacing: -.02em; color: transparent;
+    background: linear-gradient(100deg, #9EA2B0 30%, #fff 48%, #9EA2B0 66%) 160% 0 / 260% 100%; -webkit-background-clip: text; background-clip: text;
+    animation: mr-fade-up 800ms var(--hc-out) 120ms backwards, hc-sweep 1.8s var(--hc-out) 300ms both; }
+html .od-boot.hc-open .ln { width: 120px; height: 2px; border-radius: 2px; background: var(--hc-grad); transform-origin: left; animation: hc-line 1.4s var(--hc-out) 400ms backwards; opacity: .8; }

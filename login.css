@@ -1,0 +1,23 @@
+/* Halcyon — the "Sign in to Steam" window. */
+@import url("./core/alias.css");
+@import url("./core/tokens.css");
+@import url("./core/base.css");
+@import url("./core/backdrop.css");
+html .Login, html .Login.AnimatedBackground, html .LoginAnimatedBackground,
+html .Login .LoginStatusContainer, html .Login .SpinnerLoaderContainer { background: transparent !important; }
+html .Login.AnimatedBackground::before, html .LoginAnimatedBackground::after, html .Login video { display: none !important; }
+html .Login .SpinnerLoaderContainer { position: relative; }
+html .Login .SpinnerLoaderContainer > img { opacity: 0 !important; }
+/* HALCYON sign-in: the mark, a soft orbit, a gradient progress line */
+html .Login .SpinnerLoaderContainer::before {
+    content: ""; position: absolute; left: 50%; top: 50%; width: 96px; height: 96px; margin: -48px 0 0 -48px; border-radius: 50%;
+    background: conic-gradient(from 0deg, transparent 0 60%, var(--hc-accent), var(--hc-accent-2));
+    -webkit-mask: radial-gradient(circle, transparent 0 45px, #000 46px 48px); mask: radial-gradient(circle, transparent 0 45px, #000 46px 48px);
+    animation: mr-spin 1.2s linear infinite;
+}
+html .Login .SpinnerLoaderContainer::after { content: ""; position: absolute; left: 50%; top: 50%; width: 34px; height: 34px; margin: -17px 0 0 -17px; border-radius: 10px; background: var(--hc-grad);
+    -webkit-mask: radial-gradient(circle, transparent 0 6px, #000 6.6px); mask: radial-gradient(circle, transparent 0 6px, #000 6.6px); }
+html .Login .LoadingStatus, html .Login .LoadingStatus > .LoginStatus { font-family: var(--hc-text) !important; font-size: 13px !important; color: var(--t-fg-2) !important; }
+html .Login .ProgressBar { background: var(--hc-grad) !important; border-radius: 99px !important; }
+html .Login .Avatar img { border-radius: 50% !important; box-shadow: 0 0 0 2px var(--hc-s2), 0 0 0 4px var(--hc-a60) !important; }
+html .Login :is(.DialogButton, button[type="submit"]) { border-radius: 10px !important; }

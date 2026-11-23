@@ -1,0 +1,20 @@
+/* Halcyon — context menus and dropdown menus (each is its own window). */
+@import url("./core/alias.css");
+@import url("./core/tokens.css");
+@import url("./core/base.css");
+html, body { background: transparent !important; }
+html body .contextMenu.ContextMenuPosition,
+html body .contextMenu { background: transparent !important; border: none !important; box-shadow: none !important; }
+/* HALCYON menus: frosted sheets that settle into place */
+html .contextMenu .contextMenuContents, html .contextMenu .NotificationsMenu {
+    border-radius: 14px !important; border: none !important; padding: 6px !important;
+    background: color-mix(in srgb, var(--hc-s2) 97%, transparent) !important;
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,.08), inset 0 1px 0 rgba(255,255,255,.06) !important;
+    animation: mr-pop 220ms var(--hc-out) backwards;
+}
+html .contextMenu .contextMenuContents .contextMenuItem { border-radius: 9px !important; padding: 7px 12px !important; background: transparent !important; color: #DCDEE6 !important; font: 500 13px var(--hc-text) !important; text-transform: none !important; letter-spacing: 0 !important; transition: background-color 120ms !important; }
+html .contextMenu .contextMenuContents .contextMenuItem:not(.disabled):is(:hover,:focus,.active) { background: var(--hc-a24) !important; color: #fff !important; }
+html .contextMenu .contextMenuContents .contextMenuItem.disabled { opacity: .4; }
+html .contextMenu .contextMenuContents hr.Separator, html .contextMenu hr { border: none !important; height: 1px !important; margin: 5px 10px !important; background: rgba(255,255,255,.07) !important; }
+html .contextMenu .contextMenuContents .contextMenuItem.ContextMenuAction:is(.Play,.Launch) { background: var(--hc-grad) !important; color: var(--hc-on) !important; font-weight: 650 !important; }
+html .contextMenu .contextMenuContents .contextMenuItem.ContextMenuAction svg :is(path,polygon,rect,circle) { fill: currentColor !important; }

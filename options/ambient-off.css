@@ -1,0 +1,3 @@
+/* Ambient: off — plain ink, no aurora, no artwork */
+:root { --hc-amb-on: 0; --hc-aurora: 0%; }
+html::before { animation: none !important; }
