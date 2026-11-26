@@ -1,6 +1,6 @@
 # Halcyon
 
-**A calm, premium redesign of Steam.** A [Millennium](https://steambrew.app) theme for the Steam client.
+**A calm, premium redesign of Steam.** A Steam client theme for [Beyond Steam](https://github.com/OriginalSwayze/Beyond-Steam) and [Millennium](https://steambrew.app).
 
 ![Halcyon: library](media/library.gif)
 
@@ -16,13 +16,14 @@
 
 ## Install
 
-1. Install [Millennium](https://steambrew.app).
-2. Find **Halcyon** in the Millennium theme browser, or download this repository into `Steam/millennium/themes/Halcyon`.
-3. Open **Steam → Millennium → Themes** and pick **Halcyon**.
+- **With [Beyond Steam](https://github.com/OriginalSwayze/Beyond-Steam) (easiest):** in Steam press **Ctrl+Shift+B**, open
+  **Get more** and install **Halcyon**.
+- **By hand:** download **Halcyon.zip** from the [latest release](https://github.com/OriginalSwayze/Halcyon/releases/latest) and unzip
+  it into `%APPDATA%\Beyond Steam\themes\Halcyon` (Beyond Steam) or `Steam\millennium\themes\Halcyon` (Millennium).
 
 ## Options
 
-Open **Millennium → Themes → Halcyon** to change:
+In Beyond Steam's **Theme options** tab (or **Millennium → Themes → Halcyon**) you can change:
 
 Accent colour (Iris, Azure, Mint, Coral, Rose, Mono) · Surfaces (Midnight, Graphite, OLED) · Ambient light (Artwork, Aurora only, Off) · Ambient strength · Film grain · Panel transparency · Glass blur · Corner radius · Density · What's New · Readout · Startup screen · Motion · Cover hover · Cursor light · Privacy · Contrast · Focus rings · Text size
 
